@@ -1,7 +1,4 @@
 package blockchain;
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 public class Block {
 	
@@ -10,8 +7,9 @@ public class Block {
 	 Transaction[] transactions = new Transaction[4];
 	 String hash;
 	 int index;
+	 Block pointer;
 	
-	 Block(String previousBlockHash, Transaction[] transactions, String hash, int index) throws NoSuchAlgorithmException {
+	 Block(String previousBlockHash, Transaction[] transactions, String hash, int index){
 		this.index = index;
 		this.creationDate = System.currentTimeMillis();
 		this.previousBlockHash = previousBlockHash;
@@ -21,6 +19,13 @@ public class Block {
 	 
 	 String getHash() {return hash;}
 	 int getIndex() {return index;}
+	 
+		@Override
+		public String toString() {
+			//TODO
+			return "";
+		}
+		
 
 
 }
