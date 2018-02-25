@@ -1,0 +1,178 @@
+feb 25, 2018 6:47:24 PM logging.LogManager write
+INFORMACIÓN: Created account with address -> [B@5cad8086 and amount -> 10.0
+feb 25, 2018 6:47:24 PM logging.LogManager write
+INFORMACIÓN: Created account with address -> [B@5a07e868 and amount -> 15.0
+feb 25, 2018 6:47:24 PM logging.LogManager write
+INFORMACIÓN: Created account with address -> [B@76ed5528 and amount -> 20.0
+feb 25, 2018 6:47:24 PM logging.LogManager write
+INFORMACIÓN: New transaction generated: [B@5cad8086 -> 3.0 -> [B@5a07e868
+feb 25, 2018 6:47:24 PM logging.LogManager write
+INFORMACIÓN: New transaction generated: [B@5a07e868 -> 6.0 -> [B@76ed5528
+feb 25, 2018 6:47:24 PM logging.LogManager write
+INFORMACIÓN: New transaction generated: [B@76ed5528 -> 12.0 -> [B@5cad8086
+feb 25, 2018 6:47:24 PM logging.LogManager write
+INFORMACIÓN: New transaction generated: [B@5cad8086 -> 7.0 -> [B@76ed5528
+feb 25, 2018 6:47:24 PM logging.LogManager write
+INFORMACIÓN: Trying to obtain a valid hash..........
+feb 25, 2018 6:47:24 PM logging.LogManager write
+INFORMACIÓN: Correct hash generated. Attempt -> 5 A new block will be added
+feb 25, 2018 6:47:24 PM logging.LogManager write
+INFORMACIÓN: Block number 1 created correctly
+feb 25, 2018 6:47:24 PM logging.LogManager write
+INFORMACIÓN: Actual Block:1
+feb 25, 2018 6:47:24 PM logging.LogManager write
+INFORMACIÓN: Next block:2. Number of pending transactions transactions:0
+feb 25, 2018 6:47:24 PM logging.LogManager write
+INFORMACIÓN: New transaction generated: [B@5cad8086 -> 7.0 -> [B@5a07e868
+feb 25, 2018 6:47:24 PM logging.LogManager write
+INFORMACIÓN: New transaction generated: [B@5a07e868 -> 8.0 -> [B@76ed5528
+feb 25, 2018 6:47:24 PM logging.LogManager write
+INFORMACIÓN: New transaction generated: [B@76ed5528 -> 9.0 -> [B@5cad8086
+feb 25, 2018 6:47:24 PM logging.LogManager write
+INFORMACIÓN: New transaction generated: [B@5cad8086 -> 10.0 -> [B@76ed5528
+feb 25, 2018 6:47:24 PM logging.LogManager write
+INFORMACIÓN: Trying to obtain a valid hash..........
+feb 25, 2018 6:47:24 PM logging.LogManager write
+INFORMACIÓN: Correct hash generated. Attempt -> 35 A new block will be added
+feb 25, 2018 6:47:24 PM logging.LogManager write
+INFORMACIÓN: Block number 2 created correctly
+feb 25, 2018 6:47:24 PM logging.LogManager write
+INFORMACIÓN: Actual Block:2
+feb 25, 2018 6:47:24 PM logging.LogManager write
+INFORMACIÓN: Next block:3. Number of pending transactions transactions:0
+feb 25, 2018 7:00:28 PM logging.LogManager write
+INFORMACIÓN: Created account with address -> [B@490ab905 and amount -> 100.0
+feb 25, 2018 7:00:28 PM logging.LogManager write
+INFORMACIÓN: Created account with address -> [B@13805618 and amount -> 100.0
+feb 25, 2018 7:00:29 PM logging.LogManager write
+INFORMACIÓN: Created account with address -> [B@56ef9176 and amount -> 100.0
+feb 25, 2018 7:00:29 PM logging.LogManager write
+INFORMACIÓN: Created account with address -> [B@4566e5bd and amount -> 100.0
+feb 25, 2018 7:00:29 PM logging.LogManager write
+INFORMACIÓN: Created account with address -> [B@1ed4004b and amount -> 100.0
+feb 25, 2018 7:00:29 PM logging.LogManager write
+INFORMACIÓN: Created account with address -> [B@ff5b51f and amount -> 100.0
+feb 25, 2018 7:00:29 PM logging.LogManager write
+INFORMACIÓN: Created account with address -> [B@25bbe1b6 and amount -> 100.0
+feb 25, 2018 7:00:29 PM logging.LogManager write
+INFORMACIÓN: New transaction generated: [B@490ab905 -> 50.0 -> [B@13805618
+feb 25, 2018 7:00:29 PM logging.LogManager write
+INFORMACIÓN: New transaction generated: [B@490ab905 -> 20.0 -> [B@56ef9176
+feb 25, 2018 7:00:29 PM logging.LogManager write
+INFORMACIÓN: New transaction generated: [B@490ab905 -> 10.0 -> [B@4566e5bd
+feb 25, 2018 7:00:29 PM logging.LogManager write
+INFORMACIÓN: New transaction generated: [B@13805618 -> 50.0 -> [B@56ef9176
+feb 25, 2018 7:00:29 PM logging.LogManager write
+INFORMACIÓN: Trying to obtain a valid hash..........
+feb 25, 2018 7:00:29 PM logging.LogManager write
+INFORMACIÓN: Correct hash generated. Attempt -> 69 A new block will be added
+feb 25, 2018 7:00:29 PM logging.LogManager write
+INFORMACIÓN: Block number 1 created correctly
+feb 25, 2018 7:00:29 PM logging.LogManager write
+INFORMACIÓN: Actual Block: 1
+feb 25, 2018 7:00:29 PM logging.LogManager write
+INFORMACIÓN: Next block: 2 Number of pending transactions: 0
+feb 25, 2018 7:00:29 PM logging.LogManager write
+INFORMACIÓN: New transaction generated: [B@13805618 -> 20.0 -> [B@4566e5bd
+feb 25, 2018 7:00:29 PM logging.LogManager write
+INFORMACIÓN: New transaction generated: [B@13805618 -> 10.0 -> [B@1ed4004b
+feb 25, 2018 7:00:29 PM logging.LogManager write
+INFORMACIÓN: New transaction generated: [B@56ef9176 -> 50.0 -> [B@4566e5bd
+feb 25, 2018 7:00:29 PM logging.LogManager write
+INFORMACIÓN: New transaction generated: [B@56ef9176 -> 20.0 -> [B@1ed4004b
+feb 25, 2018 7:00:29 PM logging.LogManager write
+INFORMACIÓN: Trying to obtain a valid hash..........
+feb 25, 2018 7:00:29 PM logging.LogManager write
+INFORMACIÓN: Correct hash generated. Attempt -> 29 A new block will be added
+feb 25, 2018 7:00:29 PM logging.LogManager write
+INFORMACIÓN: Block number 2 created correctly
+feb 25, 2018 7:00:29 PM logging.LogManager write
+INFORMACIÓN: Actual Block: 2
+feb 25, 2018 7:00:29 PM logging.LogManager write
+INFORMACIÓN: Next block: 3 Number of pending transactions: 0
+feb 25, 2018 7:00:29 PM logging.LogManager write
+INFORMACIÓN: New transaction generated: [B@56ef9176 -> 10.0 -> [B@ff5b51f
+feb 25, 2018 7:00:29 PM logging.LogManager write
+INFORMACIÓN: New transaction generated: [B@4566e5bd -> 50.0 -> [B@25bbe1b6
+feb 25, 2018 7:00:29 PM logging.LogManager write
+INFORMACIÓN: New transaction generated: [B@4566e5bd -> 20.0 -> [B@490ab905
+feb 25, 2018 7:00:29 PM logging.LogManager write
+INFORMACIÓN: New transaction generated: [B@4566e5bd -> 10.0 -> [B@13805618
+feb 25, 2018 7:00:29 PM logging.LogManager write
+INFORMACIÓN: Trying to obtain a valid hash..........
+feb 25, 2018 7:00:29 PM logging.LogManager write
+INFORMACIÓN: Correct hash generated. Attempt -> 76 A new block will be added
+feb 25, 2018 7:00:29 PM logging.LogManager write
+INFORMACIÓN: Block number 3 created correctly
+feb 25, 2018 7:00:29 PM logging.LogManager write
+INFORMACIÓN: Actual Block: 3
+feb 25, 2018 7:00:29 PM logging.LogManager write
+INFORMACIÓN: Next block: 4 Number of pending transactions: 0
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: Created account with address -> [B@490ab905 and amount -> 100.0
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: Created account with address -> [B@13805618 and amount -> 100.0
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: Created account with address -> [B@56ef9176 and amount -> 100.0
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: Created account with address -> [B@4566e5bd and amount -> 100.0
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: Created account with address -> [B@1ed4004b and amount -> 100.0
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: Created account with address -> [B@ff5b51f and amount -> 100.0
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: Created account with address -> [B@25bbe1b6 and amount -> 100.0
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: New transaction generated: [B@490ab905 -> 50.0 -> [B@13805618
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: New transaction generated: [B@490ab905 -> 20.0 -> [B@56ef9176
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: New transaction generated: [B@490ab905 -> 10.0 -> [B@4566e5bd
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: New transaction generated: [B@13805618 -> 50.0 -> [B@56ef9176
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: Trying to obtain a valid hash..........
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: Correct hash generated. Attempt -> 69 A new block will be added
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: Block number 1 created correctly
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: Actual Block: 1
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: Next block: 2 Number of pending transactions: 0
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: New transaction generated: [B@13805618 -> 20.0 -> [B@4566e5bd
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: New transaction generated: [B@13805618 -> 10.0 -> [B@1ed4004b
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: New transaction generated: [B@56ef9176 -> 50.0 -> [B@4566e5bd
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: New transaction generated: [B@56ef9176 -> 20.0 -> [B@1ed4004b
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: Trying to obtain a valid hash..........
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: Correct hash generated. Attempt -> 29 A new block will be added
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: Block number 2 created correctly
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: Actual Block: 2
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: Next block: 3 Number of pending transactions: 0
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: New transaction generated: [B@56ef9176 -> 10.0 -> [B@ff5b51f
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: New transaction generated: [B@4566e5bd -> 50.0 -> [B@25bbe1b6
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: New transaction generated: [B@4566e5bd -> 20.0 -> [B@490ab905
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: New transaction generated: [B@4566e5bd -> 10.0 -> [B@13805618
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: Trying to obtain a valid hash..........
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: Correct hash generated. Attempt -> 76 A new block will be added
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: Block number 3 created correctly
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: Actual Block: 3
+feb 25, 2018 7:05:06 PM logging.LogManager write
+INFORMACIÓN: Next block: 4 Number of pending transactions: 0

@@ -12,24 +12,25 @@ import logging.LogManager;
 public class Blockchain {
 	
 	private static final Integer TRANSACTIONS_PER_BLOCK = 4;
-	private Integer currentTransactionsCounter;
+	private Integer currentTransactionsCounter = 0;
 	private Block current;
-	private Transaction[] currentTransactions;
+	private Transaction[] currentTransactions = new Transaction[4];
 	private MessageDigest m = getMessageDigest();
 	private static final Blockchain bk = new Blockchain();
 	
 	private Blockchain() {
-		this.current = new Block("", currentTransactions, "GenesisBlock", 0);
+		this.current = new Block("", new Transaction[0] , "GenesisBlock", 0);
 	}
 	
 	public static Blockchain getInstance() {
 		return bk;
 	}
+	
 	//private List<Account> accounts = new ArrayList<Account>();
 	
 	public void addNewTransaction(Transaction t) {
 		if(currentTransactionsCounter >= TRANSACTIONS_PER_BLOCK) {
-			LogManager.write(Level.SEVERE, "No more transactions allowen in current block");
+			LogManager.write(Level.SEVERE, "No more transactions allowed in current block");
 			return;
 		}
 		this.currentTransactions[currentTransactionsCounter] = t;
@@ -50,20 +51,20 @@ public class Blockchain {
 	}
 	
 	private void addNewBlock (){
+		LogManager.write(Level.INFO, "Trying to obtain a valid hash..........");
 		Block b = new Block(current.getHash(), getCurrentTransactions(), proofOfWork(), current.getIndex()+1);
-		LogManager.write(Level.INFO, "Block number" + b.getIndex() + "created correctly");
+		LogManager.write(Level.INFO, "Block number " + b.getIndex() + " created correctly");
 		b.pointer = current;
-		LogManager.write(Level.INFO, "Actual state:" + current.getIndex() + " -> " + current.pointer.getIndex());
-		b = current;
-		LogManager.write(Level.INFO, "Actual state:" + current.getIndex() + " -> ");
+		current = b;
+		LogManager.write(Level.INFO, "Actual Block: " + current.getIndex());
 		setCurrentTransactions();
-		LogManager.write(Level.INFO, "New pending block:" + current.getIndex()
-				+ ". Number of transactions:" + currentTransactions.length);
 		currentTransactionsCounter = 0;
+		LogManager.write(Level.INFO, "Next block: " + (current.getIndex()+1)
+				+ " Number of pending transactions: " + currentTransactionsCounter);
 	}
 	
 	
-	/*Habría que hacer un método parametrizable que recibiese un numero 
+	/* Habría que hacer un método parametrizable que recibiese un numero 
 	 * y calculase hash para ese número de pares de transacciones
 	 */
 	private String getMerkleTreeRoot() {
@@ -89,9 +90,9 @@ public class Blockchain {
 	}
 		
 	
-	//TODO: private int attempt = 1;
-	private String proofOfWork() { 
-		//attempt ++;
+	private int attempt = 1;
+	
+	private String proofOfWork() {
 		Long timestamp = System.currentTimeMillis();
 		String hash = m.digest(
 				getMerkleTreeRoot()
@@ -101,10 +102,11 @@ public class Blockchain {
 				.getBytes(StandardCharsets.UTF_8)).toString();
 		 
 		if(validHash(hash)) {
-			LogManager.write(Level.INFO, "Correct hash generated. A new block will be added");
+			LogManager.write(Level.INFO, "Correct hash generated. Attempt -> " + attempt +  " A new block will be added");
+			attempt = 1;
 			return hash;}		
 		else {
-			LogManager.write(Level.INFO, "Trying obtain a valid hash."); //Attempt:" + attempt);
+			attempt ++;
 			return proofOfWork();
 		}
 	}
@@ -135,10 +137,21 @@ public class Blockchain {
 	}
 
 
-	@Override
-	public String toString() {
-		//TODO
-		return "";
+	public void print() {
+		System.out.println("-------BLOCKCHAIN----------");
+		Block b = current;
+		while (b.pointer != null) {
+			System.out.println(b.toString());
+			System.out.println("///////////////////////////////////");
+			b = b.pointer;
+		}
+		System.out.println(b.toString());
+		System.out.println("///////////////////////////////////");
+		
+	}
+	
+	public int getNumberOfBlocks() {
+		return current.getIndex() + 1;
 	}
 	
 	

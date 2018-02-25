@@ -25,16 +25,19 @@ public class Account {
 		this.publicKey = keyPair.getPublic();
 		this.address =  m.digest(this.publicKey.toString().getBytes(StandardCharsets.UTF_8)).toString(); 
 		if(amount < 0) {
-			LogManager.write(Level.SEVERE, "Invalid count creation attempt");
+			LogManager.write(Level.SEVERE, "Invalid account creation attempt");
 		}
-		else this.amount = amount;
+		else {
+			this.amount = amount;
+			LogManager.write(Level.INFO, "Created account with address -> " + this.getAddress() + " and amount -> " + this.getAmount());
+		}
 	}
 	 
 	private KeyPair getKeyPair() {
 		try {
-			return KeyPairGenerator.getInstance("SHA-256").generateKeyPair();
+			return KeyPairGenerator.getInstance("RSA").generateKeyPair();
 		} catch (NoSuchAlgorithmException e) {
-			LogManager.write(Level.SEVERE, "Couldn´t get MessageDigest Instance");
+			LogManager.write(Level.SEVERE, "Couldn´t get Key Pair Instance");
 			return null;
 		}
 	}
@@ -65,8 +68,12 @@ public class Account {
 	}
 	
 	public void send(Account receiver, double amount) {
-		Transaction t = new Transaction (this, receiver, null, amount);
-		if (t.isValid()) { Blockchain.getInstance().addNewTransaction(t); }
+		Transaction t = new Transaction (this, receiver, amount);
+		if (t.isValid()) { 
+			LogManager.write(Level.INFO, "New transaction generated: " + this.getAddress() + " -> " + amount + " -> " + receiver.getAddress());
+			Blockchain.getInstance().addNewTransaction(t); 
+
+		}
 		
 	}
 }
