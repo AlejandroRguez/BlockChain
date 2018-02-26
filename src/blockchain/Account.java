@@ -18,19 +18,9 @@ public class Account {
 	 double amount;
 	 
 	
-	 public Account (double amount) {
-		MessageDigest m = getMessageDigest();
-		KeyPair keyPair = getKeyPair();
-		this.privateKey = keyPair.getPrivate();
-		this.publicKey = keyPair.getPublic();
-		this.address =  m.digest(this.publicKey.toString().getBytes(StandardCharsets.UTF_8)).toString(); 
-		if(amount < 0) {
-			LogManager.write(Level.SEVERE, "Invalid account creation attempt");
-		}
-		else {
-			this.amount = amount;
-			LogManager.write(Level.INFO, "Created account with address -> " + this.getAddress() + " and amount -> " + this.getAmount());
-		}
+	public Account(double amount) {
+		createAccount(amount);
+		
 	}
 	 
 	private KeyPair getKeyPair() {
@@ -50,6 +40,24 @@ public class Account {
 			return null;
 		}
 	}
+	
+	public Account createAccount(double amount) {
+		if (amount < 0) {
+			LogManager.write(Level.SEVERE, "Invalid account creation attempt");
+			return null;
+		} else {
+			MessageDigest m = getMessageDigest();
+			KeyPair keyPair = getKeyPair();
+			Account a = new Account(amount);
+			a.setPrivateKey(keyPair.getPrivate());
+			a.setPublicKey(keyPair.getPublic());
+			a.setAmount(amount);
+			a.setAddress(m.digest(this.publicKey.toString().getBytes(StandardCharsets.UTF_8)).toString());
+			LogManager.write(Level.INFO,
+					"Created account with address -> " + this.getAddress() + " and amount -> " + this.getAmount());
+			return a;
+		}
+	}
 
 	public String getAddress() {
 		return address;
@@ -67,6 +75,18 @@ public class Account {
 		this.amount = amount;
 	}
 	
+	private void setAddress(String address) {
+		this.address = address;
+	}
+
+	private void setPrivateKey(PrivateKey privateKey) {
+		this.privateKey = privateKey;
+	}
+
+	private void setPublicKey(PublicKey publicKey) {
+		this.publicKey = publicKey;
+	}
+
 	public void send(Account receiver, double amount) {
 		Transaction t = new Transaction (this, receiver, amount);
 		if (t.isValid()) { 
@@ -74,7 +94,7 @@ public class Account {
 			Blockchain.getInstance().addNewTransaction(t); 
 
 		}
-		
+		else LogManager.write(Level.SEVERE, "Trying to create an invalid transaction");
 	}
 }
 		

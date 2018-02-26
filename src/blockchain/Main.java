@@ -2,7 +2,7 @@ package blockchain;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		Account a = new Account (10);
 		Account b = new Account (15);
 		Account c = new Account (20);

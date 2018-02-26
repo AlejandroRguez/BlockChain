@@ -10,6 +10,7 @@
 target
 
 .metadata
+logs/
 bin/
 tmp/
 *.tmp

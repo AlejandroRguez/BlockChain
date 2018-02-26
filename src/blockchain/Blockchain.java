@@ -14,7 +14,7 @@ public class Blockchain {
 	private static final Integer TRANSACTIONS_PER_BLOCK = 4;
 	private Integer currentTransactionsCounter = 0;
 	private Block current;
-	private Transaction[] currentTransactions = new Transaction[4];
+	private Transaction[] currentTransactions = new Transaction[TRANSACTIONS_PER_BLOCK];
 	private MessageDigest m = getMessageDigest();
 	private static final Blockchain bk = new Blockchain();
 	
@@ -116,7 +116,7 @@ public class Blockchain {
 	}
 	
 	private void setCurrentTransactions() {
-		this.currentTransactions = new Transaction[4];
+		this.currentTransactions = new Transaction[TRANSACTIONS_PER_BLOCK];
 	}
 	
 	private Double getNonce() {
@@ -153,6 +153,12 @@ public class Blockchain {
 	public int getNumberOfBlocks() {
 		return current.getIndex() + 1;
 	}
+	
+	public int getNumberOfAddedTransactions() { return current.getIndex() * TRANSACTIONS_PER_BLOCK;	}
+	
+	public int getNumberOfTotalTransactions() {	return getNumberOfAddedTransactions() + getNumberOfPendingTransactions(); }
+	
+	public int getNumberOfPendingTransactions() { return currentTransactionsCounter; }
 	
 	
 
