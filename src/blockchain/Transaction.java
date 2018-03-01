@@ -8,8 +8,9 @@ public class Transaction {
 	protected Account sender;
 	protected Account receiver;
 	protected double amount;
+	protected double fee;
 	
-	 Transaction (Account sender, Account receiver, double amount) {
+	 Transaction (Account sender, Account receiver, double amount, double fee) {
 		this.sender = sender;
 		this.receiver = receiver;
 		this.amount = amount;
@@ -20,7 +21,8 @@ public class Transaction {
 		return "Transaction {"
 				+ "sender=" + sender.getAddress() + ","
 				+ "recipient=" + receiver.getAddress() + ", "
-				+ "amount="	+ amount + "}\n";
+				+ "amount="	+ amount + ", "
+				+ "fee=" + fee + "}\n";
 	}
 	
 	 Integer getHash() {
@@ -34,12 +36,13 @@ public class Transaction {
 		return result;
 	}
 	 
-	 public void execute() {
+	 public void execute(Account miner) {
 		this.getSender().setAmount(this.getSender().getAmount() - this.getAmount()); 
 		this.getReceiver().setAmount(this.getReceiver().getAmount() + this.getAmount()); 
+		miner.setAmount(miner.getAmount() + this.getFee());
 	 }
 	 
-	 private Account getSender() {
+	 public Account getSender() {
 		 return sender;
 	 }
 	 
@@ -49,6 +52,10 @@ public class Transaction {
 	 
 	 private double getAmount() {
 		 return amount;
+	 }
+	 
+	 private double getFee() {
+		 return fee;
 	 }
 
 	public boolean isValid() {
@@ -64,6 +71,9 @@ public class Transaction {
 		if (this.getSender().getAmount() < this.getAmount() || this.getAmount() <= 0) {
 			LogManager.write(Level.SEVERE, "Error during create transaction: Invalid amount");
 			valid = false;
+		}
+		if(this.getSender().equals(this.getReceiver())) {
+			LogManager.write(Level.WARNING, "You are trying send tokens to the same wallet");
 		}
 		return valid;
 	}

@@ -8,13 +8,15 @@ public class Block {
 	 String hash;
 	 int index;
 	 Block pointer;
+	 String miner;
 	
-	 Block(String previousBlockHash, Transaction[] transactions, String hash, int index){
+	 Block(String previousBlockHash, Transaction[] transactions, String hash, int index, String miner){
 		this.index = index;
 		this.creationDate = System.currentTimeMillis();
 		this.previousBlockHash = previousBlockHash;
 		this.transactions = transactions;
 		this.hash = hash;
+		this.miner = miner;
 	}
 	 
 	 String getHash() {return hash;}

@@ -16,11 +16,20 @@ public class Account {
 	 PrivateKey privateKey;
 	 PublicKey publicKey;
 	 double amount;
+	 MessageDigest m = getMessageDigest();
+	 String nickname;
 	 
 	
-	public Account(double amount) {
-		createAccount(amount);
-		
+	public Account(double amount, String nickname) {
+		KeyPair keyPair = getKeyPair();
+		this.privateKey = keyPair.getPrivate();
+		this.publicKey = keyPair.getPublic();
+		this.amount = amount;
+		this.nickname = nickname;
+		this.address = m.digest(this.publicKey.toString().getBytes(StandardCharsets.UTF_8)).toString();
+		Blockchain.getInstance().addAccount(this);
+		LogManager.write(Level.INFO,
+				"Created account for " + nickname +  " with address -> " + this.getAddress() + " and amount -> " + this.getAmount());
 	}
 	 
 	private KeyPair getKeyPair() {
@@ -40,24 +49,6 @@ public class Account {
 			return null;
 		}
 	}
-	
-	public Account createAccount(double amount) {
-		if (amount < 0) {
-			LogManager.write(Level.SEVERE, "Invalid account creation attempt");
-			return null;
-		} else {
-			MessageDigest m = getMessageDigest();
-			KeyPair keyPair = getKeyPair();
-			Account a = new Account(amount);
-			a.setPrivateKey(keyPair.getPrivate());
-			a.setPublicKey(keyPair.getPublic());
-			a.setAmount(amount);
-			a.setAddress(m.digest(this.publicKey.toString().getBytes(StandardCharsets.UTF_8)).toString());
-			LogManager.write(Level.INFO,
-					"Created account with address -> " + this.getAddress() + " and amount -> " + this.getAmount());
-			return a;
-		}
-	}
 
 	public String getAddress() {
 		return address;
@@ -75,20 +66,12 @@ public class Account {
 		this.amount = amount;
 	}
 	
-	private void setAddress(String address) {
-		this.address = address;
+	public String getNickname() {
+		return nickname;
 	}
-
-	private void setPrivateKey(PrivateKey privateKey) {
-		this.privateKey = privateKey;
-	}
-
-	private void setPublicKey(PublicKey publicKey) {
-		this.publicKey = publicKey;
-	}
-
-	public void send(Account receiver, double amount) {
-		Transaction t = new Transaction (this, receiver, amount);
+	
+	public void send(Account receiver, double amount, double fee) {
+		Transaction t = new Transaction (this, receiver, amount, fee);
 		if (t.isValid()) { 
 			LogManager.write(Level.INFO, "New transaction generated: " + this.getAddress() + " -> " + amount + " -> " + receiver.getAddress());
 			Blockchain.getInstance().addNewTransaction(t); 
