@@ -14,6 +14,7 @@ public class Transaction {
 		this.sender = sender;
 		this.receiver = receiver;
 		this.amount = amount;
+		this.fee = fee;
 	}
 
 	@Override
@@ -37,7 +38,7 @@ public class Transaction {
 	}
 	 
 	 public void execute(Account miner) {
-		this.getSender().setAmount(this.getSender().getAmount() - this.getAmount()); 
+		this.getSender().setAmount((this.getSender().getAmount() - this.getAmount()) - this.getFee()); 
 		this.getReceiver().setAmount(this.getReceiver().getAmount() + this.getAmount()); 
 		miner.setAmount(miner.getAmount() + this.getFee());
 	 }

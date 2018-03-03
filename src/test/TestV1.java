@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import blockchain.Account;
+import blockchain.UserAccount;
 import blockchain.Blockchain;
 import utils.AccountCreator;
 
@@ -16,13 +16,13 @@ class TestV1 {
 	@Test
 	void positiveTest() throws Exception {
 		Blockchain blockchain = Blockchain.getInstance();
-		Account a = AccountCreator.create(100, "a");
-		Account b = AccountCreator.create(100, "b");
-		Account c = AccountCreator.create(100, "c");
-		Account d = AccountCreator.create(100, "d");
-		Account e = AccountCreator.create(100, "e");
-		Account f = AccountCreator.create(100, "f");
-		Account g = AccountCreator.create(100, "g");
+		UserAccount a = AccountCreator.create(100, "a");
+		UserAccount b = AccountCreator.create(100, "b");
+		UserAccount c = AccountCreator.create(100, "c");
+		UserAccount d = AccountCreator.create(100, "d");
+		UserAccount e = AccountCreator.create(100, "e");
+		UserAccount f = AccountCreator.create(100, "f");
+		UserAccount g = AccountCreator.create(100, "g");
 		
 		a.send(b, 50, 1);
 		a.send(c, 20, 1);
@@ -62,7 +62,7 @@ class TestV1 {
 //		
 //		assertEquals(blockchain.getNumberOfBlocks(), 4);
 		
-		Account h = AccountCreator.create(-100, "h");
+		UserAccount h = AccountCreator.create(-100, "h");
 		
 		b.send(h, 50, 1);
 		c.send(h, 20, 1);
@@ -99,7 +99,7 @@ class TestV1 {
 //		
 		assertEquals(blockchain.getNumberOfBlocks(), 4);
 		
-		Account i = AccountCreator.create(100, "");
+		UserAccount i = AccountCreator.create(100, "");
 		
 		b.send(i, 50, 1);
 		c.send(i, 20, 1);
